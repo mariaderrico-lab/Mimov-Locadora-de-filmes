@@ -12,8 +12,11 @@ CREATE TABLE  filmes (
     titulo VARCHAR(100) NOT NULL,
     genero VARCHAR(50) NOT NULL,
     ano INT NOT NULL,
-    preco DECIMAL(10, 2) NOT NULL DEFAULT 10.00,P
+    preco DECIMAL(10, 2) NOT NULL DEFAULT 10.00,
+    quantidade_total INT NOT NULL DEFAULT 1,
+    quantidade_disponivel INT NOT NULL DEFAULT 1
 );
+
 
 CREATE TABLE locacoes (
     id INT AUTO_INCREMENT PRIMARY KEY,
