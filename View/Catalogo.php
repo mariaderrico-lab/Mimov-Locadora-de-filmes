@@ -58,7 +58,7 @@ if (!isset($_SESSION["usuario_logado"])) {
             </div>
         </div>
         <div class="filme">
-            <img src="templates/img/younghearts.png" alt="Young Hearts">
+            <img src="templates/img/younghearts.jpg" alt="Young Hearts">
             <div class="informacoes">
                 <h2>Young Hearts</h2>
                 <p><strong>Ano:</strong> 2024</p>
@@ -80,7 +80,7 @@ if (!isset($_SESSION["usuario_logado"])) {
             </div>
         </div>
         <div class="filme">
-            <img src="img/ondas.png" alt="Waves">
+            <img src="img/ondas.jng" alt="Waves">
             <div class="informacoes">
                 <h2>Waves</h2>
                 <p><strong>Ano:</strong> 2019</p>
