@@ -1,9 +1,12 @@
 <?php
 namespace Controller;
+
 use Model\Usuario;
+
 class AuthController
 {
     private $usuarioModel;
+
     public function __construct()
     {
         $this->usuarioModel = new Usuario();
@@ -31,11 +34,15 @@ class AuthController
     public function login(string $email, string $senha): array
     {
         $validationError = $this->validateLoginFields($email, $senha);
+
         if ($validationError !== null) {
             return $validationError;
         }
 
-        $usuario = $this->usuarioModel->autenticar(trim($email), $senha);
+        $usuario = $this->usuarioModel->autenticar(
+            trim($email),
+            $senha
+        );
 
         if ($usuario === null) {
             return [
