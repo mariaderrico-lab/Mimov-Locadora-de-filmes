@@ -1,0 +1,24 @@
+{
+    "name": "maria/mimov-locadora",
+    "description": "Sistema de Locadora de Filmes",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Controller\\": "Controller/",
+            "Model\\": "Model/"
+        },
+        "files": [
+            "Config/configuration.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "mariaderrico-lab",
+            "email": "maria.d'errico@ba.estudante.senai.br"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=8.2"
+    }
+}
