@@ -1,7 +1,9 @@
 <?php
 namespace Database;
+
 use PDO;
 use PDOException;
+
 class Conexao
 {
     private static $instancia = null;
@@ -10,10 +12,11 @@ class Conexao
     {
         if (self::$instancia === null) {
             $host = 'localhost';
-            $db = 'locadora';
+            $db   = 'locadora';
             $user = 'root';
             $pass = '1234';
             $port = '3306';
+
             try {
                 self::$instancia = new PDO(
                     "mysql:host=$host;port=$port;dbname=$db;charset=utf8mb4",
@@ -30,5 +33,4 @@ class Conexao
         }
         return self::$instancia;
     }
-}
 }
