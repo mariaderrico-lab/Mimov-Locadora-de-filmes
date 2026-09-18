@@ -5,7 +5,6 @@ if (!isset($_SESSION["usuario_logado"])) {
     exit;
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -14,7 +13,6 @@ if (!isset($_SESSION["usuario_logado"])) {
     <title>Mimov - Catálogo</title>
     <link rel="stylesheet" href="Css/Catalogo.css">
 </head>
-
 <body>
 <header>
     <div class="logo">MIMOV</div>
@@ -24,7 +22,6 @@ if (!isset($_SESSION["usuario_logado"])) {
         <a href="logout.php">Sair</a>
     </nav>
 </header>
-
 <main>
     <div class="titulo">
         <h1>Catálogo de Filmes</h1>
@@ -33,7 +30,6 @@ if (!isset($_SESSION["usuario_logado"])) {
             + Adicionar Filme
         </a>
     </div>
-
     <section class="catalogo">
         <div class="filme">
             <img src="templates/img/mulherzinhas.jpg" alt="Mulherzinhas">
@@ -43,12 +39,11 @@ if (!isset($_SESSION["usuario_logado"])) {
                 <p><strong>Gênero:</strong> Drama</p>
                 <span class="disponivel">Disponível</span>
                 <p class="preco">R$ 10,00</p>
-                <a href="alugar.php?filme=Mulherzinhas" class="alugar">
+                <a href="Alugar.php?id=1" class="alugar">
                     Alugar
                 </a>
             </div>
         </div>
-
         <div class="filme">
             <img src="templates/img/diariodeumapaixao.jpg" alt="O Diário de uma Paixão">
             <div class="informacoes">
@@ -57,12 +52,11 @@ if (!isset($_SESSION["usuario_logado"])) {
                 <p><strong>Gênero:</strong> Romance</p>
                 <span class="disponivel">Disponível</span>
                 <p class="preco">R$ 10,00</p>
-                <a href="alugar.php?filme=O Diário de uma Paixão" class="alugar">
+                <a href="Alugar.php?id=2" class="alugar">
                     Alugar
                 </a>
             </div>
         </div>
-
         <div class="filme">
             <img src="templates/img/younghearts.png" alt="Young Hearts">
             <div class="informacoes">
@@ -72,23 +66,21 @@ if (!isset($_SESSION["usuario_logado"])) {
                 <span class="indisponivel">Indisponível</span>
             </div>
         </div>
-
         <div class="filme">
-            <img src="templates/img/10coisasqodeiosobrevc.jpg" alt="Poster do filme 10 Coisas que Eu Odeio Sobre Você">
+            <img src="templates/img/10coisasqodeiosobrevc.jpg" alt="10 Coisas que Eu Odeio Sobre Você">
             <div class="informacoes">
                 <h2>10 Coisas que Eu Odeio Sobre Você</h2>
                 <p><strong>Ano:</strong> 1999</p>
                 <p><strong>Gênero:</strong> Romance / Comédia</p>
                 <span class="disponivel">Disponível</span>
                 <p class="preco">R$ 10,00</p>
-                <a href="alugar.php?filme=10 Coisas que Eu Odeio Sobre Você" class="alugar">
+                <a href="Alugar.php?id=4" class="alugar">
                     Alugar
                 </a>
             </div>
         </div>
-
         <div class="filme">
-            <img src="img/ondas.png" alt="Poster do filme Waves">
+            <img src="img/ondas.png" alt="Waves">
             <div class="informacoes">
                 <h2>Waves</h2>
                 <p><strong>Ano:</strong> 2019</p>
@@ -96,12 +88,10 @@ if (!isset($_SESSION["usuario_logado"])) {
                 <span class="indisponivel">Indisponível</span>
             </div>
         </div>
-
         <?php
         if (isset($_SESSION["filmes"])) {
             foreach ($_SESSION["filmes"] as $indice => $filme) {
         ?>
-
         <div class="filme">
             <img
                 src="<?php echo $filme["foto"]; ?>"
@@ -110,7 +100,7 @@ if (!isset($_SESSION["usuario_logado"])) {
             <div class="informacoes">
                 <h2><?php echo $filme["nome"]; ?></h2>
                 <p>
-                    <strong>Ano:</strong>
+                   <strong>Ano:</strong>
                     <?php echo $filme["ano"]; ?>
                 </p>
                 <p>
@@ -119,22 +109,21 @@ if (!isset($_SESSION["usuario_logado"])) {
                 </p>
 
                 <?php if ($filme["disponibilidade"] == "Disponível") { ?>
+
                     <span class="disponivel">
                         Disponível
                     </span>
+
                     <p class="preco">
                         R$ <?php echo $filme["custo"]; ?>
                     </p>
-                    <a
-                        href="alugar.php?filme=<?php echo urlencode($filme["nome"]); ?>"
-                        class="alugar"
-                    >
-                        Alugar
-                    </a>
+
                 <?php } else { ?>
+
                     <span class="indisponivel">
-                        Indisponível
+                        <?php echo $filme["disponibilidade"]; ?>
                     </span>
+
                 <?php } ?>
 
                 <a
@@ -143,13 +132,18 @@ if (!isset($_SESSION["usuario_logado"])) {
                 >
                     Excluir
                 </a>
+
             </div>
         </div>
+
         <?php
             }
         }
         ?>
+
     </section>
+
 </main>
+
 </body>
 </html>
