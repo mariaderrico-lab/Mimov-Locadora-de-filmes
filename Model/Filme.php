@@ -16,7 +16,7 @@ class Filme
         if ($apenasDisponiveis) {
             $sql .= " WHERE quantidade_disponivel > 0";
         }
-        $sql .= " ORDER BY id DESC"
+        $sql .= " ORDER BY id DESC";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
